@@ -8,18 +8,16 @@ import 'package:foodstagram/util/dimensions.dart';
 import 'package:foodstagram/util/screenSizes.dart';
 
 class Search extends StatefulWidget {
+  const Search();
   @override
   _SearchState createState() => _SearchState();
-
-  static const String routeName = '/search';
 }
 
 class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
-    return BottomBar(
-      active: 1,
-      body: SafeArea(
+    return Column(children: [
+      SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -74,6 +72,6 @@ class _SearchState extends State<Search> {
           ],
         ),
       ),
-    );
+    ]);
   }
 }
