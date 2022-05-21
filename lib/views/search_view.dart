@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:foodstagram/util/colors.dart';
 import 'package:foodstagram/util/styles.dart';
-import 'package:foodstagram/util/styles.dart';
-import 'package:foodstagram/ui/bottom_bar.dart';
-import 'package:email_validator/email_validator.dart';
-import 'package:foodstagram/util/dimensions.dart';
 import 'package:foodstagram/util/screenSizes.dart';
+import 'package:foodstagram/util/dimensions.dart';
+
+import 'package:email_validator/email_validator.dart';
 
 class Search extends StatefulWidget {
   const Search();

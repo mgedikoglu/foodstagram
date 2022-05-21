@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:foodstagram/model/post.dart';
+import 'package:foodstagram/views/profile_view.dart';
+import 'package:foodstagram/views/notifications_view.dart';
 import 'package:foodstagram/util/styles.dart';
 import 'package:foodstagram/util/colors.dart';
-
-import 'package:foodstagram/routes/feed.dart';
-import 'package:foodstagram/ui/search.dart';
+import 'package:foodstagram/views/search_view.dart';
+import 'package:foodstagram/views/home_view.dart';
 
 class Feed extends StatefulWidget {
   const Feed({Key? key}) : super(key: key);
@@ -21,19 +22,10 @@ class _FeedState extends State<Feed> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Feed',
-      style: optionStyle,
-    ),
+    HomeView(),
     Search(),
-    Text(
-      'Index 2: Notification',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Profile',
-      style: optionStyle,
-    ),
+    NotificationView(),
+    ProfileView(),
   ];
 
   void _onItemTapped(int index) {

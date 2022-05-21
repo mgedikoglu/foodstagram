@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodstagram/routes/login.dart';
 import 'package:foodstagram/routes/feed.dart';
+import 'package:foodstagram/views/profile_view.dart';
 import 'package:foodstagram/routes/signup.dart';
 import 'package:foodstagram/util/colors.dart';
 import 'package:email_validator/email_validator.dart';
@@ -17,11 +17,11 @@ class Welcome extends StatelessWidget {
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Center(
               child: Padding(
-                  padding: Dimen.regularPadding,
+                  padding: EdgeInsets.fromLTRB(10, 70, 10, 20),
                   child: RichText(
                     text: TextSpan(
                       text: "Foodstagram",
@@ -30,7 +30,7 @@ class Welcome extends StatelessWidget {
                   )),
             ),
             Padding(
-              padding: Dimen.regularPadding,
+              padding: EdgeInsets.fromLTRB(10, 20, 10, 40),
               child: RichText(
                 text: TextSpan(
                   text: "EAT SHARE DISCOVER",
@@ -126,8 +126,7 @@ class Welcome extends StatelessWidget {
               ),
             ),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
+              padding: const EdgeInsets.fromLTRB(10, 20, 10, 100),
               child: Row(
                 children: <Widget>[
                   Expanded(
@@ -152,6 +151,7 @@ class Welcome extends StatelessWidget {
                 ],
               ),
             ),
+            Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
