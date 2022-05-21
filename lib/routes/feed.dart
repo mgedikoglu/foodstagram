@@ -23,7 +23,7 @@ class _FeedState extends State<Feed> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomeView(),
-    Search(),
+    SearchView(),
     NotificationView(),
     ProfileView(),
   ];

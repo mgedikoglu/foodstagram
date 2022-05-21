@@ -7,71 +7,128 @@ import 'package:foodstagram/util/dimensions.dart';
 
 import 'package:email_validator/email_validator.dart';
 
-class Search extends StatefulWidget {
-  const Search();
-  @override
-  _SearchState createState() => _SearchState();
-}
+class BodyWidget extends StatelessWidget {
+  final Color color;
 
-class _SearchState extends State<Search> {
+  BodyWidget(this.color);
+
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-              child: Form(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(0),
-                      width: screenWidth(context, dividedBy: 1.1),
-                      child: TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          label: Container(
-                            width: 100,
-                            child: Row(
-                              children: [
-                                const Icon(Icons.search),
-                                const SizedBox(width: 4),
-                                const Text('Search'),
-                              ],
-                            ),
-                          ),
-                          fillColor: AppColors.textFieldFillColor,
-                          filled: true,
-                          labelStyle: kBoldLabelStyle,
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: AppColors.textFieldFillColor,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value != null) {
-                            if (value.isEmpty) {
-                              return 'Cannot leave e-mail empty';
-                            }
-                            if (!EmailValidator.validate(value)) {
-                              return 'Please enter a valid e-mail address';
-                            }
-                          }
-                        },
+    return Container(
+      height: 100.0,
+      color: color,
+      alignment: Alignment.center,
+    );
+  }
+}
+
+class SearchBox extends StatefulWidget {
+  const SearchBox();
+  @override
+  _SearchBoxState createState() => _SearchBoxState();
+}
+
+class _SearchBoxState extends State<SearchBox> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        child: Form(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                padding: EdgeInsets.all(0),
+                width: screenWidth(context, dividedBy: 1.1),
+                child: TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    label: Container(
+                      width: 100,
+                      child: Row(
+                        children: [
+                          const Icon(Icons.search),
+                          const SizedBox(width: 4),
+                          const Text('Search'),
+                        ],
                       ),
                     ),
-                  ],
+                    fillColor: AppColors.textFieldFillColor,
+                    filled: true,
+                    labelStyle: kBoldLabelStyle,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColors.textFieldFillColor,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  // validator: (value) {
+                  //   if (value != null) {
+                  //     if (value.isEmpty) {
+                  //       return 'Cannot leave e-mail empty';
+                  //     }
+                  //     if (!EmailValidator.validate(value)) {
+                  //       return 'Please enter a valid e-mail address';
+                  //     }
+                  //   }
+                  // },
                 ),
               ),
+            ],
+          ),
+        ));
+  }
+}
+
+class SearchView extends StatefulWidget {
+  const SearchView({Key? key}) : super(key: key);
+
+  @override
+  State<SearchView> createState() => _SearchViewState();
+}
+
+class _SearchViewState extends State<SearchView> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: CustomScrollView(
+        slivers: <Widget>[
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                SearchBox(),
+              ],
             ),
-          ],
-        ),
+          ),
+          SliverGrid(
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            delegate: SliverChildListDelegate(
+              [
+                BodyWidget(Colors.blue),
+                BodyWidget(Colors.green),
+                BodyWidget(Colors.yellow),
+                BodyWidget(Colors.orange),
+                BodyWidget(Colors.blue),
+                BodyWidget(Colors.red),
+                BodyWidget(Colors.blue),
+                BodyWidget(Colors.green),
+                BodyWidget(Colors.yellow),
+                BodyWidget(Colors.orange),
+                BodyWidget(Colors.blue),
+                BodyWidget(Colors.red),
+                BodyWidget(Colors.blue),
+                BodyWidget(Colors.green),
+                BodyWidget(Colors.yellow),
+                BodyWidget(Colors.orange),
+                BodyWidget(Colors.blue),
+                BodyWidget(Colors.red),
+              ],
+            ),
+          ),
+        ],
       ),
-    ]);
+    );
   }
 }
