@@ -24,6 +24,7 @@ class _FeedState extends State<Feed> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeView(),
     SearchView(),
+    Text("Camera"),
     NotificationView(),
     ProfileView(),
   ];
@@ -62,6 +63,10 @@ class _FeedState extends State<Feed> {
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera_alt),
+            label: 'Post',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),

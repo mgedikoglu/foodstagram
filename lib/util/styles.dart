@@ -51,3 +51,34 @@ final kLabelStyle = GoogleFonts.montserrat(
   fontSize: 14.0,
   color: AppColors.textColor,
 );
+
+final kDefaultTextStyle = GoogleFonts.lato(
+  fontSize: 16.7823,
+  color: Color.fromARGB(255, 0, 0, 0),
+  fontWeight: FontWeight.w500,
+);
+
+final kDefaultBoldTextStyle = GoogleFonts.lato(
+  fontSize: 16.7823,
+  color: Color.fromARGB(255, 0, 0, 0),
+  fontWeight: FontWeight.w800,
+);
+
+final kPostTextStyleBold = GoogleFonts.lato(
+  color: AppColors.darkButtonTextColor,
+  fontSize: 23.0,
+  letterSpacing: 1,
+  fontWeight: FontWeight.w700,
+);
+
+final kPostTextStyleDefault = GoogleFonts.lato(
+  color: AppColors.darkButtonTextColor,
+  fontSize: 17.0,
+  letterSpacing: 1,
+);
+
+final kPostTextStyleGrey = GoogleFonts.lato(
+  color: Color.fromARGB(255, 172, 172, 172),
+  fontSize: 18.0,
+  letterSpacing: 1,
+);

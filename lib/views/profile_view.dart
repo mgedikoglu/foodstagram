@@ -1,6 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:foodstagram/model/post.dart';
-import 'package:foodstagram/ui/post_card.dart';
+import 'package:foodstagram/util/styles.dart';
+import 'package:foodstagram/routes/edit.dart';
+import 'package:foodstagram/sampleDB/sample_user.dart';
 
 class ProfileInfo extends StatefulWidget {
   const ProfileInfo({Key? key}) : super(key: key);
@@ -32,61 +35,49 @@ class _ProfileInfoState extends State<ProfileInfo> {
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
+                  children: [
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 24, 0, 0),
                       child: Text(
-                        '345',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
+                        '800',
+                        style: kDefaultTextStyle,
                       ),
                     ),
                     Text(
                       'Posts',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: kDefaultTextStyle,
                     )
                   ],
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
                       child: Text(
                         '800',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
+                        style: kDefaultTextStyle,
                       ),
                     ),
                     Text(
                       'Follower',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: kDefaultTextStyle,
                     )
                   ],
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
+                  children: [
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 24, 0, 0),
                       child: Text(
                         '650',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
+                        style: kDefaultTextStyle,
                       ),
                     ),
                     Text(
                       'Following',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: kDefaultTextStyle,
                     )
                   ],
                 ),
@@ -95,10 +86,30 @@ class _ProfileInfoState extends State<ProfileInfo> {
                 ),
               ],
             ),
-            const Divider(
-              thickness: 2.0,
-              height: 20,
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+                  child: Text(
+                    "Mustafa Gedikoğlu",
+                    style: kDefaultBoldTextStyle,
+                  ),
+                )
+              ],
             ),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Expanded(
+                // crossAxisAlignment: CrossAxisAlignment.stretch,
+                // mainAxisAlignment: MainAxisAlignment.center,
+                child: OutlinedButton(
+                  onPressed: () => {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Edit()))
+                  },
+                  child: Text("Edit profile"),
+                ),
+              )
+            ]),
           ],
         ),
       ),
@@ -114,6 +125,9 @@ class BodyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // child: Image.asset(
+      //   'lib/img/gasto.jpeg',
+      // ),
       height: 100.0,
       color: color,
       alignment: Alignment.center,
@@ -138,6 +152,73 @@ class _ProfileViewState extends State<ProfileView> {
             delegate: SliverChildListDelegate(
               [
                 ProfileInfo(),
+                // Row(
+                //   children: [
+
+                //     ButtonBar(
+
+                //       buttonPadding:
+                //           EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                //       buttonMinWidth: 100,
+                //       children: [
+                //         RaisedButton(
+                //           child: Text("Yes"),
+                //           textColor: Colors.white,
+                //           color: Colors.green,
+                //           onPressed: () {},
+                //         ),
+                //         RaisedButton(
+                //           child: Text("No"),
+                //           color: Colors.green,
+                //           onPressed: () {},
+                //         ),
+                //         RaisedButton(
+                //           child: Text("Yes"),
+                //           textColor: Colors.white,
+                //           color: Colors.green,
+                //           onPressed: () {},
+                //         ),
+                //       ],
+                //     )
+                //   ],
+                // ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        IconButton(
+                            onPressed: () => {},
+                            icon: Icon(Icons.grid_on_rounded))
+                      ],
+                    ),
+                    VerticalDivider(
+                      color: Colors.black,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        IconButton(
+                            onPressed: () => {}, icon: Icon(Icons.bookmark)),
+                      ],
+                    ),
+                    VerticalDivider(
+                      color: Colors.black,
+                      thickness: 2,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        IconButton(
+                            onPressed: () => {}, icon: Icon(Icons.favorite))
+                      ],
+                    )
+                  ],
+                ),
               ],
             ),
           ),

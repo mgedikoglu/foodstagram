@@ -208,7 +208,7 @@ class _SignUpState extends State<SignUp> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 12.0),
                         child: Text(
-                          'Log in',
+                          'Sign Up',
                           style: kButtonDarkTextStyle,
                         ),
                       ),

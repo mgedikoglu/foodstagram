@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodstagram/model/post.dart';
 import 'package:foodstagram/ui/post_card.dart';
 import 'package:foodstagram/util/screenSizes.dart';
+import 'package:foodstagram/util/styles.dart';
 
 class Post extends StatefulWidget {
   const Post({Key? key}) : super(key: key);
@@ -11,6 +12,10 @@ class Post extends StatefulWidget {
 }
 
 class _PostState extends State<Post> {
+  bool _liked = false;
+
+  void likeChange() {}
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -47,13 +52,78 @@ class _PostState extends State<Post> {
             ),
             Row(
               children: [
-                Container(),
-                Image.asset(
-                  'lib/img/img-pc.png',
-                  scale: 0.667,
+                Stack(
+                  children: [
+                    ShaderMask(
+                      shaderCallback: (rect) {
+                        return LinearGradient(
+                          begin: Alignment.center,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            Color.fromARGB(255, 31, 30, 30)
+                          ],
+                        ).createShader(
+                            Rect.fromLTRB(0, 0, rect.width, rect.height + 50));
+                      },
+                      blendMode: BlendMode.darken,
+                      child: Image.asset(
+                        'lib/img/gasto.jpeg',
+                        scale: 2,
+                      ),
+                    ),
+                    Positioned(
+                      left: 30,
+                      top: 360,
+                      child: Text(
+                        "Gasto Local, İstanbul",
+                        style: kPostTextStyleBold,
+                      ),
+                    ),
+                    Positioned(
+                      left: 30,
+                      top: 400,
+                      child: Text(
+                        "Taco Shrimp Bomb",
+                        style: kPostTextStyleDefault,
+                      ),
+                    ),
+                    Positioned(
+                      left: 30,
+                      top: 430,
+                      // child: Text(
+                      //   "Price",
+                      //   style: kButtonDarkTextStyle,
+                      // ),
+                      child: Row(
+                        children: [
+                          Text(
+                            "Price: 6/10",
+                            style: kPostTextStyleDefault,
+                          ),
+                          Text(
+                            "",
+                            style: kPostTextStyleGrey,
+                          ),
+                          Text(
+                            " Taste: 8/10 Service: 8/10",
+                            style: kPostTextStyleDefault,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 )
               ],
-            )
+            ),
+            // Row(
+            //   children: [
+            //     IconButton(
+            //         onPressed: () => {_liked ? _liked = false : _liked = true},
+            //         if()[]
+            //         )
+            //   ],
+            // )
           ],
         ),
       ),

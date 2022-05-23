@@ -40,9 +40,12 @@ class _SearchBoxState extends State<SearchBox> {
               Container(
                 padding: EdgeInsets.all(0),
                 width: screenWidth(context, dividedBy: 1.1),
+                height: 40,
                 child: TextFormField(
+                  textAlignVertical: TextAlignVertical.top,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
                     label: Container(
                       width: 100,
                       child: Row(
