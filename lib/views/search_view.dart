@@ -14,10 +14,21 @@ class BodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100.0,
-      color: color,
-      alignment: Alignment.center,
+    return GestureDetector(
+      // onTap: () => {
+      //   Navigator.push(
+      //       context, MaterialPageRoute(builder: (context) => PostPage()))
+      // },
+      child: Padding(
+        padding: EdgeInsets.all(1),
+        child: AspectRatio(
+          aspectRatio: 1.5,
+          child: Image.asset(
+            'lib/img/gasto.jpeg',
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
     );
   }
 }

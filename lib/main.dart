@@ -3,6 +3,7 @@ import 'package:foodstagram/routes/signup.dart';
 import 'package:foodstagram/routes/welcome.dart';
 import 'package:foodstagram/routes/feed.dart';
 import 'package:foodstagram/routes/edit.dart';
+import 'package:foodstagram/routes/post.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -12,6 +13,7 @@ void main() {
       SignUp.routeName: (context) => SignUp(),
       Feed.routeName: (context) => const Feed(),
       Edit.routeName: (context) => Edit(),
+      PostPage.routeName: (context) => PostPage(),
     },
   ));
 }

@@ -67,7 +67,13 @@ class _PostState extends State<Post> {
                             Rect.fromLTRB(0, 0, rect.width, rect.height + 50));
                       },
                       blendMode: BlendMode.darken,
-                      child: Image.asset(
+                      child:
+                          // Container(
+                          //   height: 500.0,
+                          //   color: Colors.white,
+                          //   alignment: Alignment.center,
+                          // ),
+                          Image.asset(
                         'lib/img/gasto.jpeg',
                         scale: 2,
                       ),

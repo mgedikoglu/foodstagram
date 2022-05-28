@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:foodstagram/model/post.dart';
 import 'package:foodstagram/util/styles.dart';
 import 'package:foodstagram/routes/edit.dart';
+import 'package:foodstagram/routes/post.dart';
 import 'package:foodstagram/sampleDB/sample_user.dart';
 
 class ProfileInfo extends StatefulWidget {
@@ -124,13 +125,21 @@ class BodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // child: Image.asset(
-      //   'lib/img/gasto.jpeg',
-      // ),
-      height: 100.0,
-      color: color,
-      alignment: Alignment.center,
+    return GestureDetector(
+      onTap: () => {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => PostPage()))
+      },
+      child: Padding(
+        padding: EdgeInsets.all(1),
+        child: AspectRatio(
+          aspectRatio: 1.5,
+          child: Image.asset(
+            'lib/img/gasto.jpeg',
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
     );
   }
 }

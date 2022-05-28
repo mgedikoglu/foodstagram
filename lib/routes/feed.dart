@@ -39,6 +39,19 @@ class _FeedState extends State<Feed> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => {
+              // Navigator.push(
+              //     context, MaterialPageRoute(builder: (context) => Feed()))
+            },
+            child: Icon(
+              Icons.settings,
+              color: Colors.grey,
+            ),
+          )
+        ],
+
         automaticallyImplyLeading: false, // delete back button
         title: RichText(
           text: TextSpan(
